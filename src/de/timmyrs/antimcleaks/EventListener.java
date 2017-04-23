@@ -1,0 +1,37 @@
+package de.timmyrs.antimcleaks;
+
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.ProxyServer;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.event.PostLoginEvent;
+import net.md_5.bungee.api.plugin.Listener;
+import net.md_5.bungee.event.EventHandler;
+
+public class EventListener implements Listener
+{
+	private Main plugin;
+
+	EventListener(Main main)
+	{
+		this.plugin = main;
+	}
+
+	private static void handlePlayer(ProxiedPlayer p)
+	{
+		if(Main.isMCLeaksAccount(p.getName()))
+		{
+			p.disconnect(new ComponentBuilder("We suspect that your account might not be *your* account.").color(ChatColor.RED).create());
+		}
+	}
+
+	@EventHandler
+	public void onPostLogin(final PostLoginEvent e)
+	{
+		if(Main.enabled)
+		{
+			ProxyServer.getInstance().getScheduler().runAsync(plugin, ()->
+					EventListener.handlePlayer(e.getPlayer()));
+		}
+	}
+}

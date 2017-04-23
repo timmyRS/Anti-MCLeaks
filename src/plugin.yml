@@ -1,0 +1,5 @@
+name: Anti-MCLeaks
+author: timmyRS
+version: 1.0
+
+main: de.timmyrs.antimcleaks.Main
