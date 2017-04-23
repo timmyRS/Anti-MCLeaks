@@ -4,7 +4,6 @@ import net.md_5.bungee.api.plugin.Plugin;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -12,26 +11,16 @@ public class Main extends Plugin
 {
 	static boolean enabled = true;
 
-	static boolean isMCLeaksAccount(String name, boolean uuid)
+	static boolean isMCLeaksAccount(String uuid)
 	{
 		URL url;
 		try
 		{
-			url = new URL("https://mcleaks.themrgong.xyz/api/v2/is" + (uuid ? "uuid" : "name") + "mcleaks");
+			url = new URL("https://doha.blueslime.fr/api/check/" + uuid);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			String input = "{\"" + (uuid ? "uuid" : "name") + "\":\"" + name + "\"}";
-			byte[] data = input.getBytes("UTF-8");
-			con.setDoOutput(true);
-			con.setRequestMethod("POST");
-			con.setRequestProperty("Content-Type", "application/json");
-			con.setRequestProperty("Content-Length", Integer.toString(data.length));
-			con.setRequestProperty("charset", "utf-8");
-			con.setRequestProperty("User-Agent", "MCLeaksApiClient");
-			OutputStream os = con.getOutputStream();
-			os.write(data);
-			os.flush();
+			con.setRequestProperty("User-Agent", "Anti-MCLeaks");
 			BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			if(br.readLine().equals("{\"isMcleaks\":true}"))
+			if(br.readLine().equals("{\"exists\":\"true\"}"))
 			{
 				return true;
 			}

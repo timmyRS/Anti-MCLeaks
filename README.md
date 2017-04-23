@@ -21,9 +21,8 @@ There is only one command:
   - `/gaml` tells you whether Anti-MCLeaks is enabled or disabled
   - `/gaml enable` enables Anti-MCLeaks
   - `/gaml disable` disables Anti-MCLeaks
-  - `/gaml <name>` tells you whether the account with the given `<name>` is an MCLeaks-Account
   - `/gaml <uuid>` tells you whether the account with the given `<uuid>` is an MCLeaks-Account
 
 ## Credits
 
-Credits to [TheMrGong](https://github.com/TheMrGong/MCLeaksApiClient) for his API. Without their API, this project would not be possible.
+This project is powered by the API of [IamBlueSmile's Database of Hacked Accounts (DOHA) Project](https://github.com/IamBlueSlime/DOHA).

@@ -20,7 +20,7 @@ public class EventListener implements Listener
 	private static void handlePlayer(ProxiedPlayer p)
 	{
 		System.out.println(p.getUniqueId().toString());
-		if(Main.isMCLeaksAccount(p.getUniqueId().toString(), true))
+		if(Main.isMCLeaksAccount(p.getUniqueId().toString()))
 		{
 			p.disconnect(new ComponentBuilder("We suspect that your account might not be *your* account.").color(ChatColor.RED).create());
 		}

@@ -37,8 +37,7 @@ public class GAML extends Command
 					sender.sendMessage(new ComponentBuilder("Anti-MCLeaks is now enabled.").color(ChatColor.GREEN).create());
 					break;
 				default:
-					boolean uuid = args[0].length() > 16;
-					if(Main.isMCLeaksAccount(args[0], uuid))
+					if(Main.isMCLeaksAccount(args[0]))
 					{
 						sender.sendMessage(new ComponentBuilder("\"" + args[0] + "\" seems to be an MCLeaks account.").color(ChatColor.RED).create());
 					} else
