@@ -18,7 +18,7 @@ There is only one command:
 
 - Usage:
 
-  - `/gaml` tells you whether Anti-MCLeaks is enabled or disabled.
+  - `/gaml` tells you whether Anti-MCLeaks is enabled or disabled
   - `/gaml enable` enables Anti-MCLeaks
   - `/gaml disable` disables Anti-MCLeaks
   - `/gaml <name>` tells you whether the account with the given `<name>` is an MCLeaks-Account
