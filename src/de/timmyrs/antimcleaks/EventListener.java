@@ -26,6 +26,7 @@ public class EventListener implements Listener
 	}
 
 	@EventHandler
+	@SuppressWarnings("unused")
 	public void onPostLogin(final PostLoginEvent e)
 	{
 		if(Main.enabled)
