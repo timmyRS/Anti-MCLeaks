@@ -12,14 +12,14 @@ public class Main extends Plugin
 {
 	static boolean enabled = true;
 
-	static boolean isMCLeaksAccount(String name)
+	static boolean isMCLeaksAccount(String name, boolean uuid)
 	{
 		URL url;
 		try
 		{
-			url = new URL("https://mcleaks.themrgong.xyz/api/v2/isnamemcleaks");
+			url = new URL("https://mcleaks.themrgong.xyz/api/v2/is" + (uuid ? "uuid" : "name") + "mcleaks");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			String input = "{\"name\":\"" + name + "\"}";
+			String input = "{\"" + (uuid ? "uuid" : "name") + "\":\"" + name + "\"}";
 			byte[] data = input.getBytes("UTF-8");
 			con.setDoOutput(true);
 			con.setRequestMethod("POST");

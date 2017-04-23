@@ -22,6 +22,7 @@ There is only one command:
   - `/gaml enable` enables Anti-MCLeaks
   - `/gaml disable` disables Anti-MCLeaks
   - `/gaml <name>` tells you whether the account with the given `<name>` is an MCLeaks-Account
+  - `/gaml <uuid>` tells you whether the account with the given `<uuid>` is an MCLeaks-Account
 
 ## Credits
 
