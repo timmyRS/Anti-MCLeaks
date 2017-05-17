@@ -1,5 +1,7 @@
 # Anti-MCLeaks
 
+[![Latest Stable Release](https://img.shields.io/github/release/timmyrs/Anti-MCLeaks.svg?label=Stable)](https://github.com/timmyrs/Anti-MCLeaks/releases)
+
 A BungeeCord Plugin preventing Accounts that might not be owned by the player to join your server.
 
 ## Installation
