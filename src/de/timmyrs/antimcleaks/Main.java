@@ -6,29 +6,36 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Main extends Plugin
 {
 	static boolean enabled = true;
+	private static String db = "";
 
-	static boolean isMCLeaksAccount(String uuid)
+	static void updateDB()
 	{
-		URL url;
 		try
 		{
-			url = new URL("https://doha.blueslime.fr/api/check/" + uuid);
+			URL url = new URL("https://raw.githubusercontent.com/IamBlueSlime/DOHA/master/db.json");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			con.setRequestProperty("User-Agent", "Anti-MCLeaks");
 			BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			if(br.readLine().equals("{\"exists\":\"true\"}"))
+			StringBuilder sb = new StringBuilder();
+			String line;
+			while((line = br.readLine()) != null)
 			{
-				return true;
+				sb.append(line);
 			}
+			db = sb.toString();
 		} catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return false;
+	}
+
+	static boolean isMCLeaksAccount(String uuid)
+	{
+		return db.contains(uuid);
 	}
 
 	@Override
@@ -36,5 +43,6 @@ public class Main extends Plugin
 	{
 		getProxy().getPluginManager().registerCommand(this, new GAML());
 		getProxy().getPluginManager().registerListener(this, new EventListener(this));
+		getProxy().getScheduler().schedule(this, Main::updateDB, 0, 1L, TimeUnit.HOURS);
 	}
 }
