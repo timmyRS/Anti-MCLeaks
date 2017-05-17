@@ -27,4 +27,4 @@ There is only one command:
 
 ## Credits
 
-This project is powered by the API of [IamBlueSmile's Database of Hacked Accounts (DOHA) Project](https://github.com/IamBlueSlime/DOHA).
+This project is powered by [IamBlueSmile's Database of Hacked Accounts (DOHA) Project](https://github.com/IamBlueSlime/DOHA).
