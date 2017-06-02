@@ -4,6 +4,10 @@
 
 A BungeeCord Plugin preventing Accounts that might not be owned by the player to join your server.
 
+## DISCONTINUED
+
+Use [SayNoToMCLeaks](https://www.spigotmc.org/resources/saynotomcleaks.40906/) instead. It has a way better approach.
+
 ## Installation
 
 1. Download the latest jar from the [releases section](https://github.com/timmyrs/Anti-MCLeaks/releases)
